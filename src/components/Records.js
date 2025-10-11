@@ -1,5 +1,5 @@
 import React from "react";
-import medical_records from "../medicalRecords";
+import medicalRecords from "../medicalRecords.js";
 
 function Records() {
   return (

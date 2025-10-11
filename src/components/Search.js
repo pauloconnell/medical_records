@@ -1,5 +1,5 @@
 import React from "react";
-import medical_records from "../medicalRecords";
+import medical_records from "../medicalRecords.js";
 
 function Search({ setRecord, setId, id }) {
   return (

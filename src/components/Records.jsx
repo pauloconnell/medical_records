@@ -1,9 +1,18 @@
 import React from "react";
 //import medicalRecords from "../medicalRecords.js";
 
-function Records({records, id}) {
-  let SL = id+1;
+function Records({records, setId, id, selectionMade}) {
+
   console.log('rendering:',{ id});
+
+  function handleClick() {
+    if (id < records.length - 1) {
+      setId((prevId)=> prevId + 1);
+    }else{
+      setId(1);
+    }
+  }
+
   return (
     <div className="patient-profile-container" id="profile-view">
       <div className="layout-row justify-content-center">
@@ -12,7 +21,7 @@ function Records({records, id}) {
           <h5 id="patient-dob">DOB: {records[id].data[0]?.userDob}</h5>
           <h5 id="patient-height">Height: {records[id].data[0]?.meta.height}</h5>
         </div>
-        <button className="mt-10 mr-10" data-testid="next-btn">
+        <button className="mt-10 mr-10" data-testid="next-btn" onClick={handleClick}>
           Next
         </button>
       </div>
@@ -29,10 +38,11 @@ function Records({records, id}) {
           </tr>
         </thead>
         <tbody id="table-body" data-testid="patient-table" style={{color:'black'}}>
-              {records[id].data.map((record, index) => (
+       
+              {selectionMade && records[id]?.data.map((record, index) => (
             <tr key={record?.id}>
        
-              <td>{SL}</td>
+              <td>{index+1}</td>
               <td>{record.timestamp}</td>
               <td>{record.diagnosis.name}</td>
               <td>{record.meta.weight}</td>

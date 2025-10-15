@@ -1,14 +1,16 @@
+
 import React from "react";
 //import medical_records from "../medicalRecords.js";
 
-function Search({ records, setId, id }) {
+function Search({ records, setId, id, selectionMade, setSelectionMade }) {
 
   let selection=id;
 
 
   function handleSelect(e) {
     selection=(e.target.value);
-    console.log({selection});
+    console.log({selection}, {selectionMade} );
+    setSelectionMade(false);
   }
 
   function handleShow() {
@@ -17,6 +19,7 @@ function Search({ records, setId, id }) {
     let temp = Number(selection)-1;
     console.log("showing anything?", temp);
      setId(temp);
+     setSelectionMade(true);
      // id won't be updated yet
     // console.log({id}, typeof(id), selection);
   }

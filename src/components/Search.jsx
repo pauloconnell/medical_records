@@ -1,23 +1,29 @@
 
-import React from "react";
+import React, {useState} from "react";
 //import medical_records from "../medicalRecords.js";
 
 function Search({ records, setId, id, selectionMade, setSelectionMade }) {
 
-  let selection=id;
-
+  //let selection=-1;   // will be set on re-render
+  const [selection, setSelection] = useState(-1);
 
   function handleSelect(e) {
-    selection=(e.target.value);
+    setSelection(e.target.value);
     console.log({selection}, {selectionMade} );
     setSelectionMade(false);
+
   }
 
   function handleShow() {
-    
+     console.log("in show",{selection}, {selectionMade} );
+     if(selection<0){
+      alert("Please select a patient first");
+        console.log("in show",{selection}, {selectionMade} );
+      return;
+    }
     // select will be a string - need a number:
     let temp = Number(selection)-1;
-    console.log("showing anything?", temp);
+   // console.log("showing anything?", temp);
      setId(temp);
      setSelectionMade(true);
      // id won't be updated yet

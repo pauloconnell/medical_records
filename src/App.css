@@ -15,7 +15,8 @@
 
 .header {
  background-color: aquamarine;
-  height: 3em;
+  height: 4em;
+  margin-bottom: 1em;
   will-change: filter;
   transition: filter 300ms;
 

@@ -5,16 +5,26 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
+#title {
+   font-family: 'Times New Roman', Times, serif !important; 
+  font-size: 1.4em;
+  font-weight: 900;
+  font-variant: small-caps!important;
+  text-shadow: black 2px 2px 2px;
+}
+
+.header {
+ background-color: aquamarine;
+  height: 3em;
   will-change: filter;
   transition: filter 300ms;
+
+
 }
-.logo:hover {
+.header:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
+.header.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
